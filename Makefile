@@ -1,7 +1,8 @@
 NAME = so_long
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIE
+LDFLAGS = -pie
 
 MLX_DIR = libs/mlx
 LIBFT_DIR = libs/libft
@@ -13,30 +14,40 @@ OBJS = $(SRCS:.c=.o)
 
 RM = rm -f
 
-LIBFT_MAKE = $(MAKE) -C $(LIBFT_DIR)
+# Regra padrão para compilar o projeto
+all: libft mlx $(NAME)
 
-all: libft $(NAME)
-
+# Regra para compilar a biblioteca libft
 libft:
-	$(LIBFT_MAKE)
+	$(MAKE) -C $(LIBFT_DIR) all
 
+# Regra para compilar a biblioteca mlx
+mlx:
+	$(MAKE) -C $(MLX_DIR) all
+
+# Regra para compilar o executável
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(MLX_FLAGS) -L$(LIBFT_DIR) -lft
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(MLX_FLAGS) -L$(LIBFT_DIR) -lft
 
+# Regra para compilar arquivos .c em .o
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
+# Regra para limpar arquivos temporários
 clean:
 	$(RM) $(OBJS)
 	$(MAKE) clean -C $(LIBFT_DIR)
+	$(MAKE) clean -C $(MLX_DIR)
 
+# Regra para limpar arquivos temporários e o executável
 fclean: clean
 	$(RM) $(NAME)
 	$(MAKE) fclean -C $(LIBFT_DIR)
 
+# Regra para recompilar o projeto
 re: fclean all
 
+# Regra para executar o Valgrind
 vg: $(NAME)
 	valgrind ./$(NAME)
-
 
