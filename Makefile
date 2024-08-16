@@ -13,15 +13,18 @@ OBJS = $(SRCS:.c=.o)
 
 RM = rm -f
 
-# Compilar a biblioteca libft
-LIBFT_MAKE = $(MAKE) -C $(LIBFT_DIR)
+# Regra padrão para compilar o projeto
+all: libft mlx $(NAME)
 
-all: libft $(NAME)
-
-# Regra para construir a biblioteca libft
+# Regra para compilar a biblioteca libft
 libft:
-	$(LIBFT_MAKE)
+	$(MAKE) -C $(LIBFT_DIR)
 
+# Regra para compilar a biblioteca mlx
+mlx:
+	$(MAKE) -C $(MLX_DIR)
+
+# Regra para compilar o executável
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $(OBJS) $(MLX_FLAGS) -L$(LIBFT_DIR) -lft
 
@@ -29,15 +32,22 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
+# Regra para limpar arquivos temporários
 clean:
 	$(RM) $(OBJS)
 	$(MAKE) clean -C $(LIBFT_DIR)
+	$(MAKE) clean -C $(MLX_DIR)
 
+# Regra para limpar arquivos temporários e o executável
 fclean: clean
 	$(RM) $(NAME)
 	$(MAKE) fclean -C $(LIBFT_DIR)
+	$(MAKE) fclean -C $(MLX_DIR)
 
+# Regra para recompilar o projeto
 re: fclean all
 
+# Regra para executar o Valgrind
 vg: $(NAME)
 	valgrind ./$(NAME)
+
