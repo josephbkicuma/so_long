@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:18:15 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/15 13:38:21 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/17 10:37:31 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	verify_char(char map_char, t_mlx *var, size_t w, size_t h)
 	if (map_char == 'P')
 		mlx_put_image_to_window(var->ptr, var->win, var->img_player, w * 50, h
 			* 50);
+	mlx_put_image_to_window(var->ptr, var->win, var->img_count, 0, 0);
 }
 
 size_t	map_width(char *map_path)
