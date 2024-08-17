@@ -3,7 +3,7 @@ NAME = so_long
 
 # Compilador e flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIE
 LDFLAGS = -pie
 
 # Diretórios
@@ -12,7 +12,7 @@ LIBFT_DIR = libs/libft
 SRC_DIR = src
 
 # Flags da MinilibX
-MLX_FLAGS = -fPIE -I$(MINILIBX_DIR) -L$(MINILIBX_DIR) -lmlx -lX11 -lXext -lm
+MLX_FLAGS = -I$(MINILIBX_DIR) -L$(MINILIBX_DIR) -lmlx -lX11 -lXext -lm
 
 # Arquivos fonte e objetos
 SRCS = $(wildcard $(SRC_DIR)/*.c)
@@ -57,3 +57,6 @@ re: fclean all
 # Regra para executar o Valgrind
 vg: $(NAME)
 	valgrind ./$(NAME)
+
+.PHONY: all clean fclean re vg libft minilibx
+

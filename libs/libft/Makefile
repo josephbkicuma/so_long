@@ -1,6 +1,6 @@
 NAME = libft.a
 CC = clang
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIE
 SRC =	ft_strdup.c \
 		ft_strjoin.c \
 		ft_substr.c \
