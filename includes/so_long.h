@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:09:08 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/16 12:45:40 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/17 09:24:11 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../libs/libft/libft.h"
-# include "../libs/mlx/mlx.h"
+# include "../libs/minilibx-linux/mlx.h"
 # include <stdio.h>
 
 # define PIXELS 50

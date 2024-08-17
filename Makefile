@@ -1,43 +1,50 @@
+# Nome do executável
 NAME = so_long
 
+# Compilador e flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fPIE
+CFLAGS = -Wall -Wextra -Werror
 LDFLAGS = -pie
 
-MLX_DIR = libs/mlx
+# Diretórios
+MINILIBX_DIR = libs/minilibx-linux
 LIBFT_DIR = libs/libft
-MLX_FLAGS = -I$(MLX_DIR) -L$(MLX_DIR) -lmlx -lX11 -lXext -lm
-
 SRC_DIR = src
-SRCS = $(wildcard $(SRC_DIR)/*.c)
-OBJS = $(SRCS:.c=.o)
 
+# Flags da MinilibX
+MLX_FLAGS = -fPIE -I$(MINILIBX_DIR) -L$(MINILIBX_DIR) -lmlx -lX11 -lXext -lm
+
+# Arquivos fonte e objetos
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+OBJS = $(SRCS:$(SRC_DIR)/%.c=$(SRC_DIR)/%.o)
+
+# Comando para remover arquivos
 RM = rm -f
 
 # Regra padrão para compilar o projeto
-all: libft mlx $(NAME)
+all: libft minilibx $(NAME)
 
 # Regra para compilar a biblioteca libft
 libft:
 	$(MAKE) -C $(LIBFT_DIR) all
 
-# Regra para compilar a biblioteca mlx
-mlx:
-	$(MAKE) -C $(MLX_DIR) all
+# Regra para compilar a biblioteca minilibx
+minilibx:
+	$(MAKE) -C $(MINILIBX_DIR) all
 
 # Regra para compilar o executável
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(MLX_FLAGS) -L$(LIBFT_DIR) -lft
 
 # Regra para compilar arquivos .c em .o
-%.o: %.c
-	$(CC) $(CFLAGS) -I$(MLX_DIR) -I$(LIBFT_DIR) -c $< -o $@
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) -I$(MINILIBX_DIR) -I$(LIBFT_DIR) -c $< -o $@
 
 # Regra para limpar arquivos temporários
 clean:
 	$(RM) $(OBJS)
 	$(MAKE) clean -C $(LIBFT_DIR)
-	$(MAKE) clean -C $(MLX_DIR)
+	$(MAKE) clean -C $(MINILIBX_DIR)
 
 # Regra para limpar arquivos temporários e o executável
 fclean: clean
@@ -50,4 +57,3 @@ re: fclean all
 # Regra para executar o Valgrind
 vg: $(NAME)
 	valgrind ./$(NAME)
-
