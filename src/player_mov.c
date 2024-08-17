@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:48:22 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/17 10:38:42 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/17 11:11:55 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	player_mov(int key, t_mlx *var)
 
 	verify_char_in_position(var->map, pos, 'P');
 	i += check(var, key, pos);
+	var->key = key;
 	draw_assets_on_map(var);
 	num = ft_itoa(i);
 	mlx_string_put(var->ptr, var->win, 20, 30, 0xFFFFFF, num);

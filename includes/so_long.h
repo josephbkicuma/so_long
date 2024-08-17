@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:09:08 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/17 10:31:37 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/17 11:16:36 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ typedef struct s_mlx
 	void	*img_exit;
 	void	*img_player;
 	void	*img_count;
+	void	*p_left;
+	void	*p_right;
+	void	*p_back;
 	char	**map;
+	int		key;
 	size_t	width;
 	size_t	heigh;
 }			t_mlx;
@@ -62,5 +66,6 @@ int			validate_map_wall(char **map, size_t width, size_t heigh);
 int			verify_char_in_position(char **map, size_t *pos, char c);
 int			valid_access(t_mlx *var, t_point size);
 int			count_elements(char **map, char c);
+void		player_animation(t_mlx *var, int x, int y);
 
 #endif

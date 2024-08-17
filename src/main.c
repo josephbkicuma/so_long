@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 12:30:39 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/17 10:39:19 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/17 11:26:07 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ void	import_images(t_mlx *var)
 	var->img_bg = mlx_xpm_file_to_image(var->ptr, "./resources/bg.xpm", &i, &i);
 	var->img_count = mlx_xpm_file_to_image(var->ptr, "./resources/count.xpm",
 			&i, &i);
+	var->p_back = mlx_xpm_file_to_image(var->ptr, "./resources/p_back.xpm", &i,
+			&i);
+	var->p_right = mlx_xpm_file_to_image(var->ptr, "./resources/p_right.xpm",
+			&i, &i);
+	var->p_left = mlx_xpm_file_to_image(var->ptr, "./resources/p_left.xpm", &i,
+			&i);
 }
 
 int	validate(t_mlx *var, char *map_path)
@@ -78,6 +84,7 @@ int	main(int ac, char *av[])
 		perror("mlx_init");
 		return (EXIT_FAILURE);
 	}
+	var.key = 0;
 	var.win = mlx_new_window(var.ptr, var.width, var.heigh, "so_long");
 	import_images(&var);
 	mlx_hook(var.win, 17, 0, free_all, &var);

@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:08:31 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/17 10:32:24 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/17 10:58:51 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ void	free_map(char **map)
 	free(map);
 }
 
+static void	free_player_img(t_mlx *var)
+{
+	if (var->p_back)
+		mlx_destroy_image(var->ptr, var->p_back);
+	if (var->p_right)
+		mlx_destroy_image(var->ptr, var->p_right);
+	if (var->p_left)
+		mlx_destroy_image(var->ptr, var->p_left);
+	if (var->img_player)
+		mlx_destroy_image(var->ptr, var->img_player);
+}
+
 int	free_all(t_mlx *var)
 {
 	if (var)
@@ -32,14 +44,13 @@ int	free_all(t_mlx *var)
 			mlx_destroy_image(var->ptr, var->img_wall);
 		if (var->img_col)
 			mlx_destroy_image(var->ptr, var->img_col);
-		if (var->img_player)
-			mlx_destroy_image(var->ptr, var->img_player);
 		if (var->img_exit)
 			mlx_destroy_image(var->ptr, var->img_exit);
 		if (var->img_bg)
 			mlx_destroy_image(var->ptr, var->img_bg);
 		if (var->img_count)
 			mlx_destroy_image(var->ptr, var->img_count);
+		free_player_img(var);
 		if (var->ptr)
 		{
 			mlx_destroy_display(var->ptr);
