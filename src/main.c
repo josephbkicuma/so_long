@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 12:30:39 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/16 12:29:37 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/17 09:39:14 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	validate(t_mlx *var, char *map_path)
 			(var->width / PIXELS), (var->heigh / PIXELS)) || !valid_access(var,
 			size))
 	{
-		ft_putstr("Error\n");
+		ft_putstr("Error: Invalid Map\n");
 		free_map(var->map);
 		return (0);
 	}
@@ -67,7 +67,7 @@ int	main(int ac, char *av[])
 	t_mlx	var;
 
 	if (ac != 2)
-		return (ft_putstr("Invalid Params\n"));
+		return (ft_putstr("Error: Invalid Params\n"));
 	if (!validate(&var, av[1]))
 		return (EXIT_FAILURE);
 	var.ptr = mlx_init();
