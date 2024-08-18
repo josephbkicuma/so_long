@@ -1,6 +1,7 @@
 NAME = libft.a
 CC = clang
-CFLAGS = -Wall -Wextra -Werror -fPIE
+CFLAGS = -Wall -Wextra -Werror
+LFFLAGS = -fPIE
 SRC =	ft_strdup.c \
 		ft_strjoin.c \
 		ft_substr.c \
@@ -19,7 +20,7 @@ $(NAME): $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS)
 
 $(OBJECTS): $(SRC)
-	$(CC) $(CFLAGS) -c $(SRC)
+	$(CC) $(CFLAGS) $(LFFLAGS) -c $(SRC)
 
 clean:
 	$(RM) $(OBJECTS) $(BONUS_OBJECTS)

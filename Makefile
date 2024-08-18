@@ -3,7 +3,7 @@ NAME = so_long
 
 # Compilador e flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fPIE
+CFLAGS = -Wall -Wextra -Werror
 LDFLAGS = -pie
 
 # Diretórios
@@ -12,7 +12,7 @@ LIBFT_DIR = libs/libft
 SRC_DIR = src
 
 # Flags da MinilibX
-MLX_FLAGS = -I$(MINILIBX_DIR) -L$(MINILIBX_DIR) -lmlx -lX11 -lXext -lm
+MLX_FLAGS = -fPIE -I$(MINILIBX_DIR) -L$(MINILIBX_DIR) -lmlx -lX11 -lXext -lm
 
 # Arquivos fonte e objetos
 SRCS = $(wildcard $(SRC_DIR)/*.c)
