@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 08:14:06 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/18 13:00:34 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/18 13:59:56 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,12 @@ int	valid_access(t_mlx *var, t_point size)
 	t_point	begin;
 	size_t	pos[2];
 	t_mlx	*ptr;
-	//int		i;
 
 	verify_char_in_position(var->map, pos, 'P');
 	begin.x = pos[1];
 	begin.y = pos[0];
 	ptr = var;
 	fill(var, size, begin);
-	//i = -1;
 	if (count_elements(var->map, 'C') > 0 || count_elements(var->map, 'E') > 0)
 		return (0);
 	fill_reverse(var, size, begin);

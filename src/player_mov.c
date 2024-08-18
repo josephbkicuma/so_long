@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:48:22 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/18 13:32:31 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/18 13:59:34 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static int	verify_colet(char **map)
 	}
 	return (0);
 }
-
 
 static int	check(t_mlx *var, int key, size_t *pos)
 {
