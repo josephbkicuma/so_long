@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 12:30:39 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/17 11:26:07 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/18 12:48:50 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	import_images(t_mlx *var)
 	var->p_right = mlx_xpm_file_to_image(var->ptr, "./resources/p_right.xpm",
 			&i, &i);
 	var->p_left = mlx_xpm_file_to_image(var->ptr, "./resources/p_left.xpm", &i,
+			&i);
+	var->enemy = mlx_xpm_file_to_image(var->ptr, "./resources/enemy.xpm", &i,
 			&i);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 15:05:08 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/15 16:14:23 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/18 09:38:23 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int	verify_inavlids_elements(char **map)
 		j = -1;
 		while (map[i][++j])
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'P'
-				&& map[i][j] != 'C' && map[i][j] != 'E' && map[i][j] != '\n')
+				&& map[i][j] != 'C' && map[i][j] != 'E' && map[i][j] != '\n'
+				&& map[i][j] != 'N')
 				return (0);
 	}
 	return (1);

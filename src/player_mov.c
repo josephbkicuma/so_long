@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:48:22 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/17 11:11:55 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/18 13:32:31 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,29 +30,25 @@ static int	verify_colet(char **map)
 	return (0);
 }
 
+
 static int	check(t_mlx *var, int key, size_t *pos)
 {
-	if (is_valid_position(var->map[pos[0]][pos[1] + 1], var) && key == RIGHT)
+	int	new_x;
+	int	new_y;
+
+	new_x = pos[1];
+	new_y = pos[0];
+	if (key == RIGHT)
+		new_x += 1;
+	else if (key == LEFT)
+		new_x -= 1;
+	else if (key == UP)
+		new_y -= 1;
+	else if (key == DOWN)
+		new_y += 1;
+	if (is_valid_position(var->map[new_y][new_x], var))
 	{
-		var->map[pos[0]][pos[1] + 1] = 'P';
-		var->map[pos[0]][pos[1]] = '0';
-		return (1);
-	}
-	else if (is_valid_position(var->map[pos[0]][pos[1] - 1], var) && key == L)
-	{
-		var->map[pos[0]][pos[1] - 1] = 'P';
-		var->map[pos[0]][pos[1]] = '0';
-		return (1);
-	}
-	else if (is_valid_position(var->map[pos[0] - 1][pos[1]], var) && key == UP)
-	{
-		var->map[pos[0] - 1][pos[1]] = 'P';
-		var->map[pos[0]][pos[1]] = '0';
-		return (1);
-	}
-	else if (is_valid_position(var->map[pos[0] + 1][pos[1]], var) && key == D)
-	{
-		var->map[pos[0] + 1][pos[1]] = 'P';
+		var->map[new_y][new_x] = 'P';
 		var->map[pos[0]][pos[1]] = '0';
 		return (1);
 	}
@@ -83,6 +79,8 @@ static int	is_valid_position(char c, t_mlx *var)
 	else if (c == 'C')
 		return (1);
 	else if (c == 'E' && (!verify_colet(var->map)))
+		free_all(var);
+	else if (c == 'N')
 		free_all(var);
 	return (0);
 }

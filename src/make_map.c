@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 15:18:15 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/17 11:16:23 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/18 10:07:15 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ void	verify_char(char map_char, t_mlx *var, size_t w, size_t h)
 			* 50);
 	if (map_char == 'P')
 		player_animation(var, w * 50, h * 50);
+	/// ENEMY
+	if (map_char == 'N')
+		mlx_put_image_to_window(var->ptr, var->win, var->enemy, w * 50, h * 50);
 	mlx_put_image_to_window(var->ptr, var->win, var->img_count, 0, 0);
 }
 
