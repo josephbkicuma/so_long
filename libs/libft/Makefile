@@ -10,7 +10,8 @@ SRC =	ft_strdup.c \
 		ft_itoa.c \
 		get_next_line.c \
 		ft_strncmp.c \
-		ft_putstr.c
+		ft_putstr.c \
+		ft_strlen_n.c
 
 OBJECTS = $(SRC:.c=.o)
 

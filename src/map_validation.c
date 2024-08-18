@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 16:25:35 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/16 08:09:18 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/18 13:51:48 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	validate_map_alignment(char **map)
 	size_t	i;
 	size_t	lign;
 
-	lign = ft_strlen(map[0]);
+	lign = (size_t)ft_strlen_n(map[0]);
 	i = -1;
 	while (map[++i])
-		if (lign != ft_strlen(map[i]))
+		if (lign != (size_t)ft_strlen_n(map[i]))
 			return (0);
 	return (1);
 }

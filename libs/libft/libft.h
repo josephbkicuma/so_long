@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 16:57:12 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/16 11:39:11 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/18 13:44:18 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_putstr(char *str);
+int		ft_strlen_n(const char *str);
 
 #endif
