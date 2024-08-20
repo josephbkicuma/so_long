@@ -21,7 +21,6 @@ SRCS = $(SRC_DIR)/access_validate.c \
        $(SRC_DIR)/main.c \
        $(SRC_DIR)/make_map.c \
        $(SRC_DIR)/map_validation.c \
-       $(SRC_DIR)/player_animation.c \
        $(SRC_DIR)/player_mov.c
 
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
