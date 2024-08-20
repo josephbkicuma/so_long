@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:48:22 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/20 11:12:15 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/20 11:21:56 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ static int	is_valid_position(char c, t_mlx *var)
 	else if (c == 'C')
 		return (1);
 	else if (c == 'E' && (!verify_colet(var->map)))
-		free_all(var);
-	else if (c == 'N')
 		free_all(var);
 	return (0);
 }

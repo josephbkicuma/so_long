@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:08:31 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/20 11:16:05 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/20 11:22:35 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ static void	free_player_img(t_mlx *var)
 		mlx_destroy_image(var->ptr, var->p_left);
 	if (var->img_player)
 		mlx_destroy_image(var->ptr, var->img_player);
-	if (var->enemy)
-		mlx_destroy_image(var->ptr, var->enemy);
 }
 
 int	free_all(t_mlx *var)
