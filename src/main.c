@@ -59,7 +59,7 @@ int	validate(t_mlx *var, char *map_path)
 	size.x = var->width / PIXELS;
 	size.y = var->heigh / PIXELS;
 	if (!verify_num_elements(var->map) || !verify_inavlids_elements(var->map)
-		|| (var->heigh >= var->width) || (var->heigh <= 1 || var->width <= 1)
+		|| (var->heigh == var->width) || (var->heigh <= 2 || var->width <= 2)
 		|| !validate_map_extension(".ber", map_path)
 		|| !validate_map_alignment(var->map) || !validate_map_wall(var->map,
 			(var->width / PIXELS), (var->heigh / PIXELS)) || !valid_access(var,

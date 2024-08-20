@@ -1,5 +1,5 @@
 NAME = libft.a
-CC = clang
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LFFLAGS = -fPIE
 SRC =	ft_strdup.c \
