@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:48:22 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/18 13:59:34 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/20 11:12:15 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,21 @@ static int	check(t_mlx *var, int key, size_t *pos)
 void	player_mov(int key, t_mlx *var)
 {
 	static int	i = 0;
+	int			is_the_same;
 	size_t		pos[2];
 	char		*num;
-
+	
+	is_the_same = i;
 	verify_char_in_position(var->map, pos, 'P');
 	i += check(var, key, pos);
 	var->key = key;
 	draw_assets_on_map(var);
 	num = ft_itoa(i);
-	mlx_string_put(var->ptr, var->win, 20, 30, 0xFFFFFF, num);
+	if (is_the_same != i)
+	{
+		ft_putstr(num);
+		ft_putstr("\n");
+	}
 	free(num);
 }
 

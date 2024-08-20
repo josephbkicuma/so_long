@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 12:30:39 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/18 12:48:50 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/20 11:15:39 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	import_images(t_mlx *var)
 	var->img_col = mlx_xpm_file_to_image(var->ptr, "./resources/col.xpm", &i,
 			&i);
 	var->img_bg = mlx_xpm_file_to_image(var->ptr, "./resources/bg.xpm", &i, &i);
-	var->img_count = mlx_xpm_file_to_image(var->ptr, "./resources/count.xpm",
-			&i, &i);
 	var->p_back = mlx_xpm_file_to_image(var->ptr, "./resources/p_back.xpm", &i,
 			&i);
 	var->p_right = mlx_xpm_file_to_image(var->ptr, "./resources/p_right.xpm",
@@ -91,7 +89,6 @@ int	main(int ac, char *av[])
 	import_images(&var);
 	mlx_hook(var.win, 17, 0, free_all, &var);
 	draw_assets_on_map(&var);
-	mlx_string_put(var.ptr, var.win, 20, 30, 0xFFFFFF, "0");
 	mlx_key_hook(var.win, key_handler, &var);
 	mlx_loop(var.ptr);
 	return (0);

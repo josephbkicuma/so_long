@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 16:08:31 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/18 09:33:59 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/20 11:16:05 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ int	free_all(t_mlx *var)
 			mlx_destroy_image(var->ptr, var->img_exit);
 		if (var->img_bg)
 			mlx_destroy_image(var->ptr, var->img_bg);
-		if (var->img_count)
-			mlx_destroy_image(var->ptr, var->img_count);
 		free_player_img(var);
 		if (var->ptr)
 		{
