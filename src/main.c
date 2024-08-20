@@ -6,11 +6,13 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 12:30:39 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/20 11:30:34 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/20 11:58:17 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+static int	last_line(char **map);
 
 int	key_handler(int key, void *param)
 {
@@ -46,6 +48,7 @@ int	validate(t_mlx *var, char *map_path)
 	var->map = draw_map(map_path);
 	var->width = map_width(map_path);
 	var->heigh = map_heigh(map_path);
+	// printf("%ld\n\n%ld\n\n", var->heigh / 50, var->width / 50);
 	size.x = var->width / PIXELS;
 	size.y = var->heigh / PIXELS;
 	if (!verify_num_elements(var->map) || !verify_inavlids_elements(var->map)
@@ -53,12 +56,28 @@ int	validate(t_mlx *var, char *map_path)
 		|| !validate_map_extension(".ber", map_path)
 		|| !validate_map_alignment(var->map) || !validate_map_wall(var->map,
 			(var->width / PIXELS), (var->heigh / PIXELS)) || !valid_access(var,
-			size))
+			size) || !last_line(var->map))
 	{
 		ft_putstr("Error: Invalid Map\n");
 		free_map(var->map);
 		return (0);
 	}
+	return (1);
+}
+
+static int	last_line(char **map)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (map[++i])
+		;
+	i--;
+	j = -1;
+	while (map[i][++j])
+		if (map[i][j] == '\n')
+			return (0);
 	return (1);
 }
 
