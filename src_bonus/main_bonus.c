@@ -12,21 +12,6 @@
 
 #include "../includes/so_long_bonus.h"
 
-static int	last_line(char **map)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (map[++i])
-		;
-	i--;
-	j = -1;
-	while (map[i][++j])
-		if (map[i][j] == '\n')
-			return (0);
-	return (1);
-}
 
 int	key_handler(int key, void *param)
 {
@@ -79,7 +64,7 @@ int	validate(t_mlx *var, char *map_path)
 		|| !validate_map_extension(".ber", map_path)
 		|| !validate_map_alignment(var->map) || !validate_map_wall(var->map,
 			(var->width / PIXELS), (var->heigh / PIXELS)) || !valid_access(var,
-			size) || !last_line(var->map))
+			size))
 	{
 		ft_putstr("Error: Invalid Map\n");
 		free_map(var->map);
