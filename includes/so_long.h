@@ -53,7 +53,7 @@ int			free_all(t_mlx *mlx);
 char		**draw_map(char *map_path);
 void		draw_assets_on_map(t_mlx *var);
 void		free_map(char **map);
-void		player_mov(int key, t_mlx *var);
+int			player_mov(int key, t_mlx *var);
 int			verify_num_elements(char **map);
 int			verify_inavlids_elements(char **map);
 int			validate_map_extension(const char *s1, const char *s2);

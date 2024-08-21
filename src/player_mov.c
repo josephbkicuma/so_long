@@ -54,7 +54,7 @@ static int	check(t_mlx *var, int key, size_t *pos)
 	return (0);
 }
 
-void	player_mov(int key, t_mlx *var)
+int	player_mov(int key, t_mlx *var)
 {
 	static int	i = 0;
 	int			is_the_same;
@@ -73,6 +73,7 @@ void	player_mov(int key, t_mlx *var)
 		ft_putstr("\n");
 	}
 	free(num);
+	return (i);
 }
 
 static int	is_valid_position(char c, t_mlx *var)
