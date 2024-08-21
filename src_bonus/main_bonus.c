@@ -12,7 +12,6 @@
 
 #include "../includes/so_long_bonus.h"
 
-
 int	key_handler(int key, void *param)
 {
 	t_mlx	*var;
