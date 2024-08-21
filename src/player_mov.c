@@ -60,7 +60,7 @@ void	player_mov(int key, t_mlx *var)
 	int			is_the_same;
 	size_t		pos[2];
 	char		*num;
-	
+
 	is_the_same = i;
 	verify_char_in_position(var->map, pos, 'P');
 	i += check(var, key, pos);

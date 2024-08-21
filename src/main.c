@@ -48,7 +48,6 @@ int	validate(t_mlx *var, char *map_path)
 	var->map = draw_map(map_path);
 	var->width = map_width(map_path);
 	var->heigh = map_heigh(map_path);
-	// printf("%ld\n\n%ld\n\n", var->heigh / 50, var->width / 50);
 	size.x = var->width / PIXELS;
 	size.y = var->heigh / PIXELS;
 	if (!verify_num_elements(var->map) || !verify_inavlids_elements(var->map)
