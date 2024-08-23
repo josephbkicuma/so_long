@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 12:30:39 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/23 11:06:39 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/23 11:18:14 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ int	validate(t_mlx *var, char *map_path)
 	t_point	size;
 
 	var->map = draw_map(map_path);
+	if (!var->map[0])
+	{
+		ft_putstr("Error\nInvalid Map\n");
+		return (0);
+	}
 	var->width = map_width(map_path);
 	var->heigh = map_heigh(map_path);
 	size.x = var->width / PIXELS;
@@ -55,7 +60,7 @@ int	validate(t_mlx *var, char *map_path)
 			(var->width / PIXELS), (var->heigh / PIXELS)) || !valid_access(var,
 			size))
 	{
-		ft_putstr("Error: Invalid Map\n");
+		ft_putstr("Error\nInvalid Map\n");
 		free_map(var->map);
 		return (0);
 	}
