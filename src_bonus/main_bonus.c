@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 12:30:39 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/20 11:59:53 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/23 11:07:05 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	validate(t_mlx *var, char *map_path)
 	size.x = var->width / PIXELS;
 	size.y = var->heigh / PIXELS;
 	if (!verify_num_elements(var->map) || !verify_inavlids_elements(var->map)
-		|| (var->heigh == var->width) || (var->heigh <= 2 || var->width <= 2)
+		|| (var->heigh <= 2 || var->width <= 2)
 		|| !validate_map_extension(".ber", map_path)
 		|| !validate_map_alignment(var->map) || !validate_map_wall(var->map,
 			(var->width / PIXELS), (var->heigh / PIXELS)) || !valid_access(var,
