@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:48:22 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/20 11:21:56 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/23 11:32:19 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	player_mov(int key, t_mlx *var)
 
 	is_the_same = i;
 	verify_char_in_position(var->map, pos, 'P');
+	var->mov = i;
 	i += check(var, key, pos);
 	var->key = key;
 	draw_assets_on_map(var);
@@ -78,6 +79,8 @@ int	player_mov(int key, t_mlx *var)
 
 static int	is_valid_position(char c, t_mlx *var)
 {
+	char	*num_mov;
+	
 	if (c == '0')
 		return (1);
 	else if (c == '1')
@@ -85,7 +88,13 @@ static int	is_valid_position(char c, t_mlx *var)
 	else if (c == 'C')
 		return (1);
 	else if (c == 'E' && (!verify_colet(var->map)))
+	{
+		num_mov = ft_itoa(var->mov + 1);
+		ft_putstr(num_mov);
+		ft_putstr("\n");
+		free(num_mov);
 		free_all(var);
+	}
 	return (0);
 }
 

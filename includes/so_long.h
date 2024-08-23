@@ -6,7 +6,7 @@
 /*   By: jquicuma <jquicuma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:09:08 by jquicuma          #+#    #+#             */
-/*   Updated: 2024/08/20 11:34:28 by jquicuma         ###   ########.fr       */
+/*   Updated: 2024/08/23 11:28:02 by jquicuma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_mlx
 	void	*img_player;
 	char	**map;
 	int		key;
+	int		mov;
 	size_t	width;
 	size_t	heigh;
 }			t_mlx;
